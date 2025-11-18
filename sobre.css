@@ -7,3 +7,17 @@
     margin: 12px;
     padding-bottom: 1rem;
 }
+.btn-inicio {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: brown;
+    padding: 12px;
+    border-radius: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: rgb(245, 242, 242);
+    font-weight: bolder;
+    
+
+}

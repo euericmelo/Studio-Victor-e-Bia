@@ -40,6 +40,9 @@
 
 /* STYLE MAIN */
 .btn-inicio {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     background-color: brown;
     padding: 12px;
     border-radius: 1rem;
