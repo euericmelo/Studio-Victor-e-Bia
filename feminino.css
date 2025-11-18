@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    background: #ffffff;
+    color: #333;
+}
+
+/* HEADER  */
+.topo {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.topo h1 {
+    font-size: 26px;
+}
+
+topo span {
+    color: #b62bb6;
+}
+
+.topo ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+/* BANNER */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    background: #f7f7f7;
+}
+
+.banner .texto h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.banner .texto p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.banner button {
+    background: #c40505;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.banner button:hover {
+    background: #c40505;
+}
+
+.banner img {
+    width: 350px;
+}
+
+/*  DESTAQUES  */
+.destaques {
+    background: #be0c74;
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+.destaques h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.destaques p {
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    width: 250px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+}
+
+.card h4 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.btn2 {
+    margin-top: 20px;
+    background: white;
+    color: #7a33d6;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn2:hover {
+    background: #f0f0f0;
+}
+
+/* GALERIA  */
+.galeria {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.galeria h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.fotos {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.fotos img {
+    width: 260px;
+    border-radius: 15px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* FOOTER */
+footer {
+    background: #630343;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+footer h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
