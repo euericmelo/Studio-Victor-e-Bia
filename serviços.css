@@ -12,6 +12,7 @@
   }
   /*espaço da img com text*/
   .servicos {
+    text-align: center;
     padding: 60px 20px;
   }
   .servico h3{
@@ -38,7 +39,7 @@
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));/* Cria colunas que se ajustam automaticamente */
     gap: 35px;
     max-width: 1100px;
-    margin: 0 auto;
+    margin: auto;
   }
   
 /*corpo geral*/

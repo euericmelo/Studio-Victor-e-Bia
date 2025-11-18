@@ -1,10 +1,25 @@
-.local{
-    background-color: aqua;
-}
-.local p{
-    display: flex;
-    text-align: center;
+
+.Endereço{
     margin: 12px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     align-items: center;
     justify-content: center;
+}
+.local{
+    background-color: rgb(25, 0, 255);
+    margin: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    width:600px ;
+    height: 450px;
+}
+.local p{
+    text-align:left ;
+    margin: 12px;
+}
+.mapa{
+    border-radius: 12px;
 }
