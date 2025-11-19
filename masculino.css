@@ -1,198 +1,104 @@
 
+/* ==========================
+   ESTILO GERAL DA PÁGINA
+========================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+.servicos.masculinos {
+    padding-bottom: 60px;
 }
 
-body {
-    background: #ffffff;
-    color: #333;
-}
+/* ==========================
+   LISTA DE SERVIÇOS
+========================== */
 
-/* HEADER  */
-.topo {
-    width: 100%;
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-.topo h1 {
-    font-size: 26px;
-}
-
-topo span {
-    color: #b62bb6;
-}
-
-.topo ul {
-    list-style: none;
-    display: flex;
+.lista-servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-/* BANNER */
-.banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f7f7f7;
-    margin:22px 22px 0px 22px;
-}
-
-.banner .texto h2 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-.banner .texto p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.banner button {
-    background: #c40505;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: .3s;
-}
-
-.banner button:hover {
-    background: #c40505;
-}
-
-.banner img {
-    width: 350px;
-}
-
-/*  DESTAQUES  */
-.destaques {
-    background: #be0c74;
-    padding: 50px 20px;
+.servico-m {
+    background: #1a1a1a;
+    border-radius: 14px;
+    padding: 15px;
     text-align: center;
-    color: white;
+    transition: .3s ease;
+    border: 1px solid #222;
 }
 
-.destaques h3 {
-    font-size: 30px;
-    margin-bottom: 10px;
+.servico-m:hover {
+    transform: translateY(-5px);
+    border-color: #ff3b3b;
+    box-shadow: 0 0 18px rgba(255, 60, 60, 0.4);
 }
 
-.destaques p {
-    margin-bottom: 30px;
+.servico-m img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 30px;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 25px;
-    width: 250px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-}
-
-.card h4 {
+.servico-m  h2 {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-.btn2 {
-    margin-top: 20px;
-    background: white;
-    color: #7a33d6;
-    padding: 12px 25px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: .3s;
+.servico-m p {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.5;
 }
 
-.btn2:hover {
-    background: #f0f0f0;
-}
+/* ==========================
+   BOTÃO CTA
+========================== */
 
-/* GALERIA  */
-.galeria {
+.cta {
     text-align: center;
-    padding: 50px 20px;
-}
-
-.galeria h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.fotos {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-.fotos img {
-    width: 260px;
-    border-radius: 15px;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* FOOTER */
-footer {
-    background: #630343;
-    color: white;
-    text-align: center;
-    padding: 30px;
     margin-top: 40px;
 }
 
-footer h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-/* STYLE HEADER / NAVBAR */
-
-.container {
-    background-color: #4107c9;
-    display: flex;
-    padding: 12px;
-    justify-content: space-around;
-}
-
-.logo {
-    width: 30px;
-}
-
-.navbar {
-    display: flex;
-    gap: 1rem;
-}
-
-.navbar a {
+.botao {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 20px;
+    font-weight: 600;
     text-decoration: none;
-    color: aliceblue;
-    font-size: 1.2rem;
+    border-radius: 50px;
+    color: white;
+    background: linear-gradient(45deg, #ff0000, #ff4747, #ff7b7b);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    transition: .3s ease;
+}
 
+.botao:hover {
+    transform: scale(1.06);
+    box-shadow: 0 8px 24px rgba(255, 0, 0, 0.6);
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .servico-m h2 {
+        font-size: 20px;
+    }
+
+    .botao {
+        font-size: 18px;
+        padding: 12px 28px;
+    }
 }
