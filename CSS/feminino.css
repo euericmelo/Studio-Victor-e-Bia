@@ -1,21 +1,16 @@
-<<<<<<< HEAD
 
 /* ==========================
    ESTILO GERAL DA PÁGINA
 ========================== */
-=======
 /* SERVIÇOS FEMININO */
->>>>>>> 5b40cfb0e8d48c5a84a61b55fb6b619a4c698baf
 
 .servicos.masculinos {
     padding-bottom: 60px;
 }
 
-<<<<<<< HEAD
 /* ==========================
    LISTA DE SERVIÇOS
 ========================== */
-=======
 .hero {
     text-align: center;
     padding: 40px 20px;
@@ -44,7 +39,6 @@
 }
 
 /*LISTA DE SERVIÇOS */
->>>>>>> 5b40cfb0e8d48c5a84a61b55fb6b619a4c698baf
 
 .lista-servicos {
     display: grid;
@@ -87,13 +81,10 @@
     line-height: 1.5;
 }
 
-<<<<<<< HEAD
 /* ==========================
    BOTÃO CTA
 ========================== */
-=======
 /*BOTÃO CONTATO*/
->>>>>>> 5b40cfb0e8d48c5a84a61b55fb6b619a4c698baf
 
 .cta {
     text-align: center;
@@ -117,7 +108,6 @@
     transform: scale(1.06);
     box-shadow: 0 8px 24px rgba(255, 0, 0, 0.6);
 }
-<<<<<<< HEAD
 
 /* ==========================
    RESPONSIVO
@@ -142,5 +132,3 @@
         padding: 12px 28px;
     }
 }
-=======
->>>>>>> 5b40cfb0e8d48c5a84a61b55fb6b619a4c698baf
