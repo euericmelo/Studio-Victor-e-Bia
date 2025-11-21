@@ -1,7 +1,4 @@
 
-/* ==========================
-   ESTILO GERAL DA PÁGINA
-========================== */
 
 .servicos.masculinos {
     padding-bottom: 60px;
@@ -52,10 +49,6 @@
     line-height: 1.5;
 }
 
-/* ==========================
-   BOTÃO CTA
-========================== */
-
 .cta {
     text-align: center;
     margin-top: 40px;
@@ -78,28 +71,3 @@
     transform: scale(1.06);
     box-shadow: 0 8px 24px rgba(255, 0, 0, 0.6);
 }
-
-/* ==========================
-   RESPONSIVO
-========================== */
-
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 16px;
-        padding: 0 10px;
-    }
-
-    .servico-m h2 {
-        font-size: 20px;
-    }
-
-    .botao {
-        font-size: 18px;
-        padding: 12px 28px;
-    }
-}
-

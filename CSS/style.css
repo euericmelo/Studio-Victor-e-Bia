@@ -93,6 +93,7 @@ video::-webkit-media-controls {
   /*espaço da img com text*/
   .servicos {
     padding: 60px 20px;
+    display: flex;
   }
   .servico h3{
     text-align: center;
