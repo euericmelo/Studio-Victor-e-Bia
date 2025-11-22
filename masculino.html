@@ -11,25 +11,27 @@
 </head>
 
 <body>
+<!-- HEADER -->
   <header>
     <div class="container">
-      <img src="./imagens/logo.png" alt="Logo salao Victor e Bia" class="logo">
-  
+      <img src="./imagens/logo.png" alt="Logo salão Victor e Bia" class="logo">
+
       <!-- Botão de menu -->
-      <div class="menu-btn" id="menuBtn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-  
-      <nav class="navbar" id="navbar">
-        <a href="./index.html">Início</a>
-        <a href="#">Serviços</a>
-        <a href="#">Endereço</a>
-        <a href="#">Sobre</a>
-      </nav>
+     <!-- Botão hamburguer novo -->
+<div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<nav class="navbar" id="navbar">
+    <a href="#Inicio">Início</a>
+    <a href="#Servicos">Serviços</a>
+    <a href="#Endereço">Endereço</a>
+    <a href="#Sobre">Sobre</a>
+</nav>
     </div>
-  
+
     <div class="overlay" id="overlay"></div>
   </header>
 <main class="servicos masculinos">
@@ -57,11 +59,65 @@
         </div>
     </section>
 
-    <div class="cta">
-        <a href="https://wa.me/55SEUNUMERO" target="_blank" class="botao">Agendar Agora</a>
+       <div class="cta">
+      <a href="agendamento.html" class="botao">Agendar Agora</a>
     </div>
 
+
 </main>
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="depoimentos">
+    <h2>Nossos Clientes Dizem</h2>
+
+    <div class="depoimento">
+
+      <article class="card">
+        <div class="card-media">
+          <img src="https://wallpapers.com/images/featured/pessoa-aleatoria-roumbpovzh5jzxj5.jpg" alt="Foto da cliente Maria">
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="quote">Ótimo atendimento! Meu cabelo ficou perfeito.</p>
+          <p class="author"><strong>Maria Silva</strong> — Cliente</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media">
+          <img src="https://s2-quem.glbimg.com/Pn1kzdqw3X0t6aL_Ds9tbMAJNaY=/0x0:720x720/fit-in/752x720/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2022/a/k/bzGTovRCGRgpKrXvVM8A/2021-01-05-josie-pessoa.jpeg" alt="Foto da cliente Ana">
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span class="muted">★</span>
+          </div>
+          <p class="quote">Manicure caprichosa! Resultado impecável.</p>
+          <p class="author"><strong>Ana Pereira</strong> — Cliente</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36" alt="Foto do cliente João">
+        </div>
+        <div class="card-body">
+          <div class="rating">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span class="muted">★</span>
+          </div>
+          <p class="quote">Corte moderno e atendimento excelente.</p>
+          <p class="author"><strong>João Santos</strong> — Cliente</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+<footer class="footer">
+    <p>© 2025 Studio Victor e Bia — Todos os direitos reservados.</p>
+    <span class="dev">Desenvolvido por <strong>EvolTree</strong></span>
+</footer>
+ <script src="./JS/scrypt.js" defer></script>
+
 
 </body>
 
