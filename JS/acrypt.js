@@ -65,3 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+// Botão Flutuante WhatsApp
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("wa-float");
+
+  if (!btn) return;
+
+  const phone = btn.getAttribute("data-phone");
+  const message = btn.getAttribute("data-msg") || "";
+  const encodedMessage = encodeURIComponent(message);
+
+  btn.href = `https://wa.me/${phone}?text=${encodedMessage}`;
+
+  btn.setAttribute("target", "_blank");
+  btn.setAttribute("rel", "noopener noreferrer");
+});
