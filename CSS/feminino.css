@@ -2,43 +2,35 @@
 /* ==========================
    ESTILO GERAL DA PÁGINA
 ========================== */
-/* SERVIÇOS FEMININO */
 
+/* CORRIGE O TOPO PARA NÃO FICAR DEBAIXO DA NAVBAR */
 .servicos.masculinos {
     padding-bottom: 60px;
+    padding-top: 120px; /* empurra TODO o conteúdo para baixo */
+}
+
+/* ==========================
+   TÍTULO E TEXTO INTRODUTÓRIO
+========================== */
+.servicos.masculinos h1 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    color: #d4006f;
+    margin-top: 0; /* não precisa mais da margem extra aqui */
+}
+
+.servicos.masculinos > p {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
 }
 
 /* ==========================
    LISTA DE SERVIÇOS
 ========================== */
-.hero {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.hero h1 {
-    font-size: 38px;
-    font-weight: 700;
-    color: #d4006f;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    max-width: 750px;
-    margin: 0 auto 25px auto;
-    font-size: 18px;
-    color: #555;
-}
-
-.hero img {
-    width: 100%;
-    max-width: 750px;
-    border-radius: 14px;
-    margin-top: 20px;
-    box-shadow: 0 4px 20px rgba(212, 0, 111, 0.25);
-}
-
-/*LISTA DE SERVIÇOS */
 
 .lista-servicos {
     display: grid;
@@ -50,7 +42,7 @@
 }
 
 .servico-m {
-    background: #1a1a1a;
+    background: #fff7f7;
     border-radius: 14px;
     padding: 15px;
     text-align: center;
@@ -70,21 +62,20 @@
     margin-bottom: 15px;
 }
 
-.servico-m  h2 {
+.servico-m h2 {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
 .servico-m p {
     font-size: 15px;
-    color: #ccc;
+    color: black;
     line-height: 1.5;
 }
 
 /* ==========================
    BOTÃO CTA
 ========================== */
-/*BOTÃO CONTATO*/
 
 .cta {
     text-align: center;
@@ -110,15 +101,19 @@
 }
 
 /* ==========================
-   RESPONSIVO
+   RESPONSIVIDADE
 ========================== */
-
 @media (max-width: 600px) {
-    .hero h1 {
+
+    .servicos.masculinos {
+        padding-top: 140px; /* mais espaço para nav fixa */
+    }
+
+    .servicos.masculinos h1 {
         font-size: 30px;
     }
 
-    .hero p {
+    .servicos.masculinos > p {
         font-size: 16px;
         padding: 0 10px;
     }
