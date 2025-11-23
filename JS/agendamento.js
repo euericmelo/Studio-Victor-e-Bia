@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "18:00"
   ];
 
+  // Guarda horários ocupados enquanto o usuário está na página
   const horariosOcupados = {};
+
   const numeroWhatsApp = "5511972776263";
 
   const listaHorarios = document.getElementById("lista-horarios");
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let horarioSelecionado = "";
 
-  // Define a menor data (hoje)
+  // Define min date (hoje)
   (function setMinDate() {
     const hoje = new Date();
     const yyyy = hoje.getFullYear();
@@ -32,23 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
     dataInput.min = `${yyyy}-${mm}-${dd}`;
   })();
 
-  // Quando escolhe a data → mostra horários
-  dataInput.addEventListener("change", () => {
+
+  // ==========================
+  //     GERAR HORÁRIOS
+  // ==========================
+
+  function carregarHorarios(dataVal) {
     listaHorarios.innerHTML = "";
     horarioSelecionado = "";
-
-    const dataVal = dataInput.value;
-    if (!dataVal) return;
-
-    const dataObj = new Date(dataVal + "T00:00:00");
-    const dia = dataObj.getDay();
-
-    // Domingo e segunda = fechado
-    if (dia === 0 || dia === 1) {
-      alert("Agendamentos apenas de Terça a Sábado.");
-      dataInput.value = "";
-      return;
-    }
 
     const ocupados = horariosOcupados[dataVal] || [];
 
@@ -69,9 +62,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
       listaHorarios.appendChild(el);
     });
+  }
+
+
+  // ==========================
+  //     AO MUDAR A DATA
+  // ==========================
+
+  dataInput.addEventListener("change", () => {
+    const dataVal = dataInput.value;
+    if (!dataVal) return;
+
+    const diaSemana = new Date(dataVal + "T00:00:00").getDay();
+
+    // Bloqueio de domingo (0) e segunda (1)
+    if (diaSemana === 0 || diaSemana === 1) {
+      alert("Agendamentos apenas de Terça a Sábado.");
+      
+      // NÃO limpa o input → apenas retorna
+      // e espera o usuário escolher outra data
+      return;
+    }
+
+    carregarHorarios(dataVal);
   });
 
-  // FORMULÁRIO → WhatsApp
+
+  // ==========================
+  //   FORM → WHATSAPP
+  // ==========================
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -90,11 +110,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Marca horário como ocupado
-    if (!horariosOcupados[data]) horariosOcupados[data] = [];
+    // Impede agendar duas vezes no mesmo horário
+    if (!horariosOcupados[data]) {
+      horariosOcupados[data] = [];
+    }
+    if (horariosOcupados[data].includes(horarioSelecionado)) {
+      alert("Este horário já está ocupado!");
+      return;
+    }
+
     horariosOcupados[data].push(horarioSelecionado);
 
-    // MENSAGEM COM EMOJIS (ATUALIZADA)
+    // Mensagem estilizada com emojis
     const mensagem = `
 ⭐ *NOVO AGENDAMENTO — Studio Victor & Bia* ⭐
 
@@ -109,10 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
 Obrigado pelo agendamento! 😊
     `.trim();
 
-    // Link WhatsApp
     const link = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
 
-    window.location.href = link; // funciona no iPhone
+    window.location.href = link;
+
+    // Recarrega a lista de horários após ocupar
+    carregarHorarios(data);
   });
 
 });
