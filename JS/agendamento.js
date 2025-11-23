@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // HORÁRIOS A CADA 30 MINUTOS
+  // HORÁRIOS A CADA 30 MIN
   const horarios = [
     "09:00","09:30",
     "10:00","10:30",
@@ -14,18 +14,28 @@ document.addEventListener("DOMContentLoaded", () => {
     "18:00"
   ];
 
-  // Guarda horários ocupados enquanto o usuário está na página
-  const horariosOcupados = {};
-
   const numeroWhatsApp = "5511972776263";
-
   const listaHorarios = document.getElementById("lista-horarios");
   const dataInput = document.getElementById("data");
   const form = document.getElementById("form-agenda");
 
   let horarioSelecionado = "";
 
-  // Define min date (hoje)
+  // ============================
+  //   LOCALSTORAGE
+  // ============================
+
+  const horariosOcupados = JSON.parse(localStorage.getItem("ocupados")) || {};
+
+  function salvarOcupados() {
+    localStorage.setItem("ocupados", JSON.stringify(horariosOcupados));
+  }
+
+
+  // ============================
+  // DEFINIR MIN DATA
+  // ============================
+
   (function setMinDate() {
     const hoje = new Date();
     const yyyy = hoje.getFullYear();
@@ -35,21 +45,61 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
 
-  // ==========================
-  //     GERAR HORÁRIOS
-  // ==========================
+  // ============================
+  // BLOQUEAR DOMINGO / SEGUNDA
+  // ============================
 
-  function carregarHorarios(dataVal) {
+  dataInput.addEventListener("input", () => {
+    const val = dataInput.value;
+    if (!val) return;
+
+    const day = new Date(val + "T00:00").getDay();
+
+    if (day === 0 || day === 1) {
+      dataInput.value = "";
+      listaHorarios.innerHTML = `<p class="aviso">Selecione uma data de Terça a Sábado.</p>`;
+      return;
+    }
+
+    carregarHorarios(val);
+  });
+
+
+  // ============================
+  //   FUNÇÃO → MOSTRAR HORÁRIOS
+  // ============================
+
+  function carregarHorarios(dataEscolhida) {
     listaHorarios.innerHTML = "";
     horarioSelecionado = "";
 
-    const ocupados = horariosOcupados[dataVal] || [];
+    const ocupados = horariosOcupados[dataEscolhida] || [];
+
+    const hoje = new Date();
+    const dataSelecionada = new Date(dataEscolhida + "T00:00");
+
+    const diaHoje = hoje.toISOString().split("T")[0];
+    const mesmaData = dataEscolhida === diaHoje;
 
     horarios.forEach(hora => {
       const el = document.createElement("div");
       el.className = "horario";
       el.textContent = hora;
 
+      // BLOQUEAR HORÁRIO PASSADO (se for hoje)
+      if (mesmaData) {
+        const [h, m] = hora.split(":");
+        const agoraMin = hoje.getHours() * 60 + hoje.getMinutes();
+        const horaMin = parseInt(h) * 60 + parseInt(m);
+
+        if (horaMin <= agoraMin) {
+          el.classList.add("ocupado");
+          listaHorarios.appendChild(el);
+          return;
+        }
+      }
+
+      // HORÁRIO OCUPADO
       if (ocupados.includes(hora)) {
         el.classList.add("ocupado");
       } else {
@@ -65,32 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // ==========================
-  //     AO MUDAR A DATA
-  // ==========================
-
-  dataInput.addEventListener("change", () => {
-    const dataVal = dataInput.value;
-    if (!dataVal) return;
-
-    const diaSemana = new Date(dataVal + "T00:00:00").getDay();
-
-    // Bloqueio de domingo (0) e segunda (1)
-    if (diaSemana === 0 || diaSemana === 1) {
-      alert("Agendamentos apenas de Terça a Sábado.");
-      
-      // NÃO limpa o input → apenas retorna
-      // e espera o usuário escolher outra data
-      return;
-    }
-
-    carregarHorarios(dataVal);
-  });
-
-
-  // ==========================
-  //   FORM → WHATSAPP
-  // ==========================
+  // ============================
+  //     FORM → WHATSAPP
+  // ============================
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -110,18 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Impede agendar duas vezes no mesmo horário
-    if (!horariosOcupados[data]) {
-      horariosOcupados[data] = [];
-    }
-    if (horariosOcupados[data].includes(horarioSelecionado)) {
-      alert("Este horário já está ocupado!");
-      return;
+    // Salvar horário ocupado
+    if (!horariosOcupados[data]) horariosOcupados[data] = [];
+    if (!horariosOcupados[data].includes(horarioSelecionado)) {
+      horariosOcupados[data].push(horarioSelecionado);
+      salvarOcupados();
     }
 
-    horariosOcupados[data].push(horarioSelecionado);
-
-    // Mensagem estilizada com emojis
+    // MENSAGEM BONITA
     const mensagem = `
 ⭐ *NOVO AGENDAMENTO — Studio Victor & Bia* ⭐
 
@@ -140,7 +163,6 @@ Obrigado pelo agendamento! 😊
 
     window.location.href = link;
 
-    // Recarrega a lista de horários após ocupar
     carregarHorarios(data);
   });
 
