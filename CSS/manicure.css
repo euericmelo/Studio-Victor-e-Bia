@@ -1,7 +1,35 @@
-
-.manicure{
-padding:1.5rem;
+/* ==========================
+   CONTAINER PRINCIPAL
+========================== */
+.manicure {
+    padding: 1.5rem;
+    padding-top: 120px; /* evita ficar embaixo da navbar */
 }
+
+/* ==========================
+   TÍTULO E DESCRIÇÃO (neutros)
+========================== */
+
+.manicure h1 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    color: #333; /* cor neutra */
+    margin-top: 0;
+}
+
+.manicure > p {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 18px;
+    color: #555; /* cinza neutro */
+    margin-bottom: 40px;
+}
+
+/* ==========================
+   LISTA DE SERVIÇOS
+========================== */
+
 .lista-servicos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -11,8 +39,8 @@ padding:1.5rem;
     margin: auto;
 }
 
-.servico3{
-    background: #1a1a1a;
+.servico3 {
+    background: #fff7f7;
     border-radius: 14px;
     padding: 15px;
     text-align: center;
@@ -39,7 +67,30 @@ padding:1.5rem;
 
 .servico3 p {
     font-size: 15px;
-    color: #ccc;
+    color: black;
     line-height: 1.5;
 }
 
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+@media (max-width: 600px) {
+    .manicure {
+        padding-top: 140px; /* mais espaço para nav fixa */
+    }
+
+    .manicure h1 {
+        font-size: 30px;
+    }
+
+    .manicure > p {
+        font-size: 16px;
+        padding: 0 10px;
+        margin-bottom: 35px;
+    }
+
+    .servico3 h2 {
+        font-size: 20px;
+    }
+}
