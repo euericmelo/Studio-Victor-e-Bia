@@ -1,92 +1,118 @@
-// agendamento.js atualizado — salva agendamento COMPLETO
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  const form = document.getElementById("form-agenda");
-  const listaHorarios = document.getElementById("lista-horarios");
-
-  const KEY = "agendamentos";
-
-  // carregar storage
-  function getStore() {
-    const raw = localStorage.getItem(KEY);
-    return raw ? JSON.parse(raw) : {};
-  }
-
-  // salvar storage
-  function saveStore(obj) {
-    localStorage.setItem(KEY, JSON.stringify(obj));
-  }
-
-  // horários padrão
-  const horariosPadrao = [
-    "09:00","10:00","11:00",
-    "13:00","14:00","15:00","16:00"
+  // HORÁRIOS A CADA 30 MINUTOS
+  const horarios = [
+    "09:00","09:30",
+    "10:00","10:30",
+    "11:00","11:30",
+    "12:00","12:30",
+    "13:00","13:30",
+    "14:00","14:30",
+    "15:00","15:30",
+    "16:00","16:30",
+    "17:00","17:30",
+    "18:00"
   ];
 
-  // carregar horários ao mudar a data
-  document.getElementById("data").addEventListener("change", (e) => {
-    carregarHorarios(e.target.value);
-  });
+  const horariosOcupados = {};
+  const numeroWhatsApp = "5511972776263";
 
-  function carregarHorarios(dataEscolhida) {
+  const listaHorarios = document.getElementById("lista-horarios");
+  const dataInput = document.getElementById("data");
+  const form = document.getElementById("form-agenda");
+
+  let horarioSelecionado = "";
+
+  // Define a menor data (hoje)
+  (function setMinDate() {
+    const hoje = new Date();
+    const yyyy = hoje.getFullYear();
+    const mm = String(hoje.getMonth() + 1).padStart(2, "0");
+    const dd = String(hoje.getDate()).padStart(2, "0");
+    dataInput.min = `${yyyy}-${mm}-${dd}`;
+  })();
+
+  // Quando escolhe a data → mostra horários
+  dataInput.addEventListener("change", () => {
     listaHorarios.innerHTML = "";
-    if (!dataEscolhida) return;
+    horarioSelecionado = "";
 
-    const store = getStore();
-    const ocupados = store[dataEscolhida]?.map(a => a.hora) || [];
+    const dataVal = dataInput.value;
+    if (!dataVal) return;
 
-    horariosPadrao.forEach(hora => {
-      const div = document.createElement("div");
-      div.className = "horario";
-      div.textContent = hora;
+    const dataObj = new Date(dataVal + "T00:00:00");
+    const dia = dataObj.getDay();
+
+    // Domingo e segunda = fechado
+    if (dia === 0 || dia === 1) {
+      alert("Agendamentos apenas de Terça a Sábado.");
+      dataInput.value = "";
+      return;
+    }
+
+    const ocupados = horariosOcupados[dataVal] || [];
+
+    horarios.forEach(hora => {
+      const el = document.createElement("div");
+      el.className = "horario";
+      el.textContent = hora;
 
       if (ocupados.includes(hora)) {
-        div.classList.add("ocupado");
+        el.classList.add("ocupado");
       } else {
-        div.addEventListener("click", () => {
+        el.addEventListener("click", () => {
           document.querySelectorAll(".horario").forEach(x => x.classList.remove("selecionado"));
-          div.classList.add("selecionado");
+          el.classList.add("selecionado");
+          horarioSelecionado = hora;
         });
       }
 
-      listaHorarios.appendChild(div);
+      listaHorarios.appendChild(el);
     });
-  }
+  });
 
-  // enviar agendamento
+  // FORMULÁRIO → WhatsApp
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value.trim();
     const telefone = document.getElementById("telefone").value.trim();
-    const servico = document.getElementById("servico").value.trim();
-    const data = document.getElementById("data").value;
+    const servico = document.getElementById("servico").value;
+    const data = dataInput.value;
 
-    const horarioSelecionado = document.querySelector(".horario.selecionado");
-    if (!horarioSelecionado) {
-      alert("Selecione um horário!");
+    if (!nome || !telefone || !servico || !data) {
+      alert("Preencha todos os campos.");
       return;
     }
 
-    const hora = horarioSelecionado.textContent;
+    if (!horarioSelecionado) {
+      alert("Escolha um horário.");
+      return;
+    }
 
-    // montar objeto
-    const store = getStore();
-    if (!store[data]) store[data] = [];
+    // Marca horário como ocupado
+    if (!horariosOcupados[data]) horariosOcupados[data] = [];
+    horariosOcupados[data].push(horarioSelecionado);
 
-    // salvar objeto completo
-    store[data].push({
-      hora,
-      nome,
-      telefone,
-      servico
-    });
+    // MENSAGEM COM EMOJIS (ATUALIZADA)
+    const mensagem = `
+⭐ *NOVO AGENDAMENTO — Studio Victor & Bia* ⭐
 
-    saveStore(store);
+👤 *Nome:* ${nome}
+📱 *Telefone:* ${telefone}
 
-    alert("Agendamento realizado com sucesso!");
-    form.reset();
-    listaHorarios.innerHTML = "";
+💼 *Serviço:* ${servico}
+
+📅 *Data:* ${data}
+⏰ *Horário:* ${horarioSelecionado}
+
+Obrigado pelo agendamento! 😊
+    `.trim();
+
+    // Link WhatsApp
+    const link = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+    window.location.href = link; // funciona no iPhone
   });
+
 });
