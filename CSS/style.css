@@ -34,6 +34,7 @@
 .navbar {
     display: flex;
     gap: 25px;
+    text-transform: uppercase;
 }
 
 .navbar a {
