@@ -56,8 +56,10 @@
 
 .servico3 img {
     width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
+height: 220px;   /* define uma altura fixa */
+object-fit: cover;  /* corta a imagem sem distorcer */
+ border-radius: 12px;
+ margin-bottom: 15px;
 }
 
 .servico3 h2 {

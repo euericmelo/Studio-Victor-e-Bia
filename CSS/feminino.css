@@ -57,9 +57,11 @@
 }
 
 .servico-m img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
+ width: 100%;
+height: 220px;   /* define uma altura fixa */
+object-fit: cover;  /* corta a imagem sem distorcer */
+ border-radius: 12px;
+ margin-bottom: 15px;
 }
 
 .servico-m h2 {
