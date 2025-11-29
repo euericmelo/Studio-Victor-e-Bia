@@ -81,9 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
   btn.setAttribute("target", "_blank");
   btn.setAttribute("rel", "noopener noreferrer");
 });
-//depoimentos
+
+// depoimentos
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
+let currentIndex = 0;
 
 function showSlide(index) {
     slides.forEach(s => s.classList.remove("active"));
@@ -94,5 +96,16 @@ function showSlide(index) {
 }
 
 dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => showSlide(index));
+    dot.addEventListener("click", () => {
+        currentIndex = index;
+        showSlide(index);
+    });
 });
+
+// AUTO CARROSSEL (a cada 3 segundos)
+setInterval(() => {
+    currentIndex++;
+    if (currentIndex >= slides.length) currentIndex = 0;
+    showSlide(currentIndex);
+}, 3000);
+
