@@ -1,6 +1,4 @@
-/* ==========================
-   ESTILO GERAL DA PÁGINA
-========================== */
+/*  ESTILO GERAL DA PÁGINA*/
 
 .servicos.masculinos {
     padding: 1.5rem;
@@ -8,9 +6,7 @@
     padding-bottom: 60px;
 }
 
-/* ==========================
-   TÍTULO E DESCRIÇÃO (NEUTROS)
-========================== */
+/* TÍTULO E DESCRIÇÃO (NEUTROS) */
 
 .servicos.masculinos h1 {
     text-align: center;
@@ -28,9 +24,7 @@
     margin-bottom: 40px;
 }
 
-/* ==========================
-   LISTA DE SERVIÇOS
-========================== */
+/* LISTA DE SERVIÇOS */
 
 .lista-servicos {
     display: grid;
@@ -75,9 +69,7 @@
     line-height: 1.5;
 }
 
-/* ==========================
-   BOTÃO CTA
-========================== */
+/* BOTÃO CTA*/
 
 .cta {
     text-align: center;
@@ -102,9 +94,7 @@
     box-shadow: 0 8px 24px rgba(255, 0, 0, 0.6);
 }
 
-/* ==========================
-   RESPONSIVIDADE
-========================== */
+/*RESPONSIVIDADE*/
 
 @media (max-width: 600px) {
 
@@ -126,10 +116,7 @@
         font-size: 20px;
     }
 }
-/* ========================== */
-/* DEPOIMENTOS                */
-/* ========================== */
-
+/* DEPOIMENTOS */
 body {
     font-family: Arial, sans-serif;
 }
@@ -137,7 +124,7 @@ body {
 .testimonials {
     text-align: center;
     padding: 40px;
-    max-width: 900px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -146,26 +133,18 @@ body {
     margin-top: 30px;
 }
 
-/* Slide padrão */
 .slide {
     display: none;
     padding: 30px;
     border: 1px solid #eee;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Slide ativo */
 .slide.active {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
 }
 
-/* Avatar circular */
 .avatar {
     width: 60px;
     height: 60px;
@@ -177,37 +156,42 @@ body {
     justify-content: center;
     font-size: 26px;
     font-weight: bold;
-    color: #333;
 }
 
-/* Estrelas */
 .stars {
     color: gold;
     font-size: 20px;
     margin: 10px 0;
 }
 
-/* Dots */
 .dots {
     margin-top: 20px;
 }
 
 .dot {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
     background: #bbb;
     border-radius: 50%;
     display: inline-block;
-    margin: 0 6px;
+    margin: 0 5px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.dot:hover {
-    transform: scale(1.2);
 }
 
 .dot.active {
     background: #333;
-    transform: scale(1.3);
+}
+
+/* Mobile scroll lateral */
+@media (max-width: 600px) {
+    .depoimento {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card {
+        flex: 0 0 auto;
+    }
 }
