@@ -37,7 +37,6 @@
     display: flex;
     gap: 25px;
 }
-
 .navbar a {
     text-decoration: none;
     color: aliceblue;
