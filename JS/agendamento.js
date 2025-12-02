@@ -167,3 +167,44 @@ Obrigado pelo agendamento! 😊
   });
 
 });
+
+    // ===============================
+    // MENU HAMBÚRGUER + OVERLAY
+    // ===============================
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navbar = document.getElementById("navbar");
+    const overlay = document.getElementById("overlay");
+
+    if (menuBtn && navbar && overlay) {
+
+        // Função abrir menu
+        function abrirMenu() {
+            menuBtn.classList.add("active");
+            navbar.classList.add("mobile-show");
+            navbar.classList.remove("mobile-hidden");
+            overlay.classList.add("show");
+        }
+
+        // Função fechar menu
+        function fecharMenu() {
+            menuBtn.classList.remove("active");
+            navbar.classList.remove("mobile-show");
+            navbar.classList.add("mobile-hidden");
+            overlay.classList.remove("show");
+        }
+
+        // Toggle do botão
+        menuBtn.addEventListener("click", () => {
+            if (navbar.classList.contains("mobile-show")) {
+                fecharMenu();
+            } else {
+                abrirMenu();
+            }
+        });
+
+        // Fechar menu ao clicar no overlay
+        overlay.addEventListener("click", () => {
+            fecharMenu();
+        });
+    }
