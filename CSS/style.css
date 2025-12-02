@@ -169,7 +169,6 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
     margin: 12px;
-    padding-top: 120px;
     
 }
 
@@ -201,7 +200,6 @@ h2 {
     text-align: center;
 }
 .servicos h2{
-    top:0;
     }
 
 .servico ul {
