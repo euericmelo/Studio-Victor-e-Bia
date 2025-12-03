@@ -30,7 +30,7 @@
 }
 
 .logo {
-    width: 30px;
+    width: 55px;
 }
 
 .navbar {
@@ -168,7 +168,8 @@ h2 {
     gap: 35px;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 12px;
+    margin: 12px auto;
+
     
 }
 
@@ -179,6 +180,7 @@ h2 {
     overflow: hidden;
     flex: 1; 
     min-width: 250px;
+margin:12px;
 }
 
 .servico:hover {
@@ -199,9 +201,6 @@ h2 {
     font-weight: 600;
     text-align: center;
 }
-servicos h2{
-  padding-top: 80px;
-    }
 
 .servico ul {
     padding: 0 25px 25px;
@@ -334,11 +333,6 @@ servicos h2{
     text-align: justify;
 }
 
-.Sobre h2 {
-    margin-bottom: 25px;
-    text-align: center;
-}
-
 /* ========================== */
 /* ENDEREÇO / MAPA             */
 /* ========================== */
@@ -452,4 +446,53 @@ servicos h2{
 .btn-inicio {
     text-align: center;
     margin-top: 40px;
+}
+/* STYLE BOTAO INSTA */
+
+.container-insta {
+  margin-top: 38px;       /* <<< espaço em cima */
+  display: flex;
+  justify-content: center; /* <<< centraliza */
+}
+
+/* Botão */
+.instagram-button {
+  padding: 9px;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.instagram-button a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+/* hover */
+.instagram-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+}
+
+/* click */
+.instagram-button:active {
+  transform: translateY(1px);
+}
+.h2s{
+padding-top:80px;
+font-size: 2rem;
+    color: #d63384;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.instagram-button a:link,
+.instagram-button a:visited,
+.instagram-button a:hover,
+.instagram-button a:active {
+  color: #fff;           /* mantém branco sempre */
+  text-decoration: none; /* remove sublinhado */
 }
