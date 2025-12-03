@@ -24,7 +24,7 @@
 }
 
 .logo {
-    width: 30px;
+    width: 55px;
 }
 
 .navbar {
@@ -110,7 +110,7 @@
   margin: 18px auto;
   background: #ffffff;
   border-radius: 12px;
-  padding: 3.5rem;
+  padding: 5rem;
   box-shadow: 0 8px 30px rgba(16,24,40,0.06);
 }
 
