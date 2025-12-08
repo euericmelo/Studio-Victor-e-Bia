@@ -2,7 +2,7 @@
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-[![Site ao vivo](https://img.shields.io/badge/Site%20ao%20vivo-💻-orange?style=for-the-badge)](https://euericmelo.github.io/studio-victor-e-bia/)
+[![Site ao vivo](https://img.shields.io/badge/Site%20ao%20vivo-💻-orange?style=for-the-badge)](https://euericmelo.github.io/Studio-Victor-e-Bia/)
 [![Repositório](https://img.shields.io/badge/GitHub-studio--victor--e--bia-black?style=for-the-badge&logo=github)](https://github.com/euericmelo/studio-victor-e-bia)
 
 # 💄 Studio Victor e Bia — Site Institucional
