@@ -43,7 +43,7 @@ Processo simples, rápido e eficiente — ideal para o segmento de beleza.
 
 ## 🔗 Acesso
 
-**Site:** https://euericmelo.github.io/studio-victor-e-bia/  
+**Site:** https://euericmelo.github.io/Studio-Victor-e-Bia/  
 **Repositório:** https://github.com/euericmelo/studio-victor-e-bia  
 
 ---
